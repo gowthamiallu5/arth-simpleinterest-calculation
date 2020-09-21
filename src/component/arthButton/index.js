@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-class SharedButton extends Component {
+const SharedButton = (props) => {
+    console.log(props);
+//   submitEvent(){
+//     //   if(this.props.emitEvent){
+//     //       this.props.emitEvent();
+//     //   }
+//   }
 
-    submitEvent(){
-        if(this.props.emitEvent){
-            this.props.emitEvent();
-        }
-    }
-
-    render(){
-        const { buttonText } = this.props;
-
-        return(
-            <button onClick={() => this.submitEvent()} data-test="buttonComponent">
-                {buttonText}
-            </button>
-        );
-    }
-}
-
-SharedButton.propTypes = {
-    buttonText: PropTypes.string,
-    emitEvent: PropTypes.func
+  return (
+    <Button
+    variant="primary"  onClick={() => this.submitEvent()}
+      data-test="buttonComponent"
+    >
+      {props.value}
+    </Button>
+  );
 };
 
 export default SharedButton;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-
+import "./styles.scss";
 
 class Headline extends Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class Headline extends Component {
       return null;
     }
     return (
-      <div data-test="headlinecomponent">
-        <h1 data-test="header">{header}</h1>
-        <p data-test="desc">{desc}</p>
+      <div data-test="headlinecomponent" className="headline">
+        <h3 data-test="header">{header}</h3>
+        <p data-test="desc" className="desc">{desc}</p>
       </div>
     );
   }
