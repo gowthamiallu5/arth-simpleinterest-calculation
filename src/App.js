@@ -9,13 +9,18 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <section className="main">
-        <Headline header="SIMPLE INTEREST" desc="Calculating simple interest" />
-        <Arthemetic number1={0} number2={0} />
-      </section>
-      <section className="simple">
-        <Simple />
-      </section>
+      <div className="content">
+        <section className="main">
+          <Headline
+            header="SIMPLE INTEREST"
+            desc="Calculating simple interest"
+          />
+          <Arthemetic number1={0} number2={0} />
+        </section>
+        <section className="simple">
+          <Simple />
+        </section>
+      </div>
     </div>
   );
 }
