@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./styles.scss";
 
 const SharedButton = (props) => {
     console.log(props);
@@ -12,7 +12,7 @@ const SharedButton = (props) => {
 
   return (
     <Button
-    variant="primary"  onClick={() => this.submitEvent()}
+    variant="primary" className="buttoncss" onClick={() => this.submitEvent()}
       data-test="buttonComponent"
     >
       {props.value}

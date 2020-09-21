@@ -58,6 +58,7 @@ const Arthemetic = (props) => {
             />
           </div>
           <div className="buttons">{navButtons}</div>
+          <h1 className="result">Result = {}</h1>
         </div>
       </section>
     </div>
