@@ -9,8 +9,8 @@ const Weather = () => {
 
   return (
     <section className="main-cont">
-      <form onSubmit={handle}>
-        <h1>Weather</h1>
+      <form className="main" onSubmit={handle}>
+        <h1 className="head">Weather</h1>
         <input type="text" placeholder="Enter City" maxLength="50" value="" />
         <button type="submit">Get Forecast</button>
         <div className="weather-info">
