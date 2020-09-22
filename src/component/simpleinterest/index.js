@@ -9,7 +9,7 @@ const Simple = () => {
   return (
     <div className="simple-interest">
       <section className="si-func">
-        <h1>Simple-Interest-Calculator</h1>
+        <h1 className="head">Simple-Interest-Calculator</h1>
         <form className="simple-interest" onSubmit={handleFormSubmit}>
           <div>
             <label>Principal</label>
