@@ -4,6 +4,7 @@ import Logo from "../../assets/graphics/logo.png";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Arthemetic from "./../arthemetic/index";
 import Simple from "./../simpleinterest/index";
+import Dummyapi from "./../dummyapi/index";
 
 const Header = (props) => {
   return (
@@ -22,14 +23,14 @@ const Header = (props) => {
                 <Link to="/Simpleinterest">Simple Interest</Link>
               </li>
               <li>
-                <Link to="/dashboard">Temperature</Link>
+                <Link to="/Dummyapi">Temperature</Link>
               </li>
             </ul>
             <div className="content">
               <Switch>
                 <Route exact path="/" component={Arthemetic} />
                 <Route path="/Simpleinterest" component={Simple} />
-                <Route path="/dashboard" component={Simple} />
+                <Route path="/Dummyapi" component={Dummyapi} />
               </Switch>
             </div>
           </div>
