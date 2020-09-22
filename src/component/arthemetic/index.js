@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Headline from "./../headline/index";
 import SharedButton from "./../arthButton/index";
 import "./styles.scss";
+import { connect } from "react-redux";
 
 const Arthemetic = (props) => {
   // const initialState={
@@ -23,7 +24,7 @@ const Arthemetic = (props) => {
   const [total, setTotal] = useState(0);
 
   const handleSubmit = () => {
-    console.log("submitted", );
+    console.log("submitted");
   };
 
   
@@ -31,7 +32,7 @@ const Arthemetic = (props) => {
   var navButtons = NAV_BUTTONS.map((button, index) => {
     return (
       <SharedButton
-        handleSubmit={handleSubmit}
+        onClick={handleSubmit}
         value={button.value}
         key={index}
         operation={button.operation}
@@ -80,4 +81,13 @@ const Arthemetic = (props) => {
   );
 };
 
-export default Arthemetic;
+const showvalue = (resultvalue) => {
+  console.log("resultvalue", resultvalue);
+  //setTotal(resultvalue)
+};
+
+const mapStateToProps = (state) => ({
+  resultvalue: showvalue(state),
+});
+
+export default connect(mapStateToProps)(Arthemetic);
