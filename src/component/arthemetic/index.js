@@ -86,8 +86,8 @@ const showvalue = (resultvalue) => {
   //setTotal(resultvalue)
 };
 
-const mapStateToProps = (state) => ({
-  resultvalue: showvalue(state),
-});
+// const mapStateToProps = (state) => ({
+//   resultvalue: showvalue(state),
+// });
 
-export default connect(mapStateToProps)(Arthemetic);
+export default Arthemetic;
