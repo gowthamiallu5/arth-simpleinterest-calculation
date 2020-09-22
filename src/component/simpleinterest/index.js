@@ -9,8 +9,14 @@ const Simple = () => {
   return (
     <div className="simple-interest">
       <section className="si-func">
-        <h1 className="head">Simple-Interest-Calculator</h1>
-        <form className="simple-interest" onSubmit={handleFormSubmit}>
+        <h1 className="head" data-test="head">
+          Simple-Interest-Calculator
+        </h1>
+        <form
+          className="simple-interest"
+          data-test="simple-interest"
+          onSubmit={handleFormSubmit}
+        >
           <div>
             <label>Principal</label>
             <input type="text" name="Principal Amount" placeholder="0" />
@@ -23,7 +29,9 @@ const Simple = () => {
             <label>Time(in Months)</label>
             <input type="text" name="time" placeholder="0" />
           </div>
-          <button type="submit">Simple-Interest</button>
+          <button type="submit" data-test="button">
+            Simple-Interest
+          </button>
           <div>
             <label>Simple Interest</label>
             <input

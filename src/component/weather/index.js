@@ -9,10 +9,14 @@ const Weather = () => {
 
   return (
     <section className="main-cont">
-      <form className="main" onSubmit={handle}>
-        <h1 className="head">Weather</h1>
+      <form className="main" data-test="main" onSubmit={handle}>
+        <h1 className="head" data-test="header">
+          Weather
+        </h1>
         <input type="text" placeholder="Enter City" maxLength="50" value="" />
-        <button type="submit">Get Forecast</button>
+        <button type="submit" data-test="button">
+          Get Forecast
+        </button>
         <div className="weather-info">
           <p>City : {}</p>
           <p>Date : {}</p>
