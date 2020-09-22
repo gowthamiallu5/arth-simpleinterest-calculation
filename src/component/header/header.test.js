@@ -13,9 +13,7 @@ describe("header component ", () => {
  let component;
  beforeEach(()=>{
    component = setUp();
- })
-
- 
+ }) 
   it("should render", () => {
     const wrapper = findbyattr(component,'headerComponent');
     expect(wrapper.length).toBe(1);

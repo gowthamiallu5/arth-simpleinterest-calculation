@@ -12,7 +12,7 @@ const SharedButton = (props) => {
 
   return (
     <Button
-    variant="primary" className="buttoncss" onClick={() => this.submitEvent()}
+    variant="primary" className="buttoncss" 
       data-test="buttonComponent"
     >
       {props.value}
