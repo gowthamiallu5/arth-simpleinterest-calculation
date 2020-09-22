@@ -7,7 +7,6 @@ import Simple from "./../simpleinterest/index";
 import Dummyapi from "./../dummyapi/index";
 import Weather from "./../weather/index";
 
-
 const Header = (props) => {
   return (
     <header data-test="headerComponent">
@@ -25,9 +24,9 @@ const Header = (props) => {
                 <Link to="/Simpleinterest">Simple Interest</Link>
               </li>
               <li>
-                <Link to="/Dummyapi">Temperature</Link>
-      </li>
-    <li>
+                <Link to="/Dummyapi">Dummy api</Link>
+              </li>
+              <li>
                 <Link to="/Weather">Temperature</Link>
               </li>
             </ul>

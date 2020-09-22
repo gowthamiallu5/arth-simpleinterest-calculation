@@ -1,18 +1,25 @@
 import React, { useState } from "react";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import "./styles.scss";
+import { connect } from "react-redux";
+import { getposts } from "../../reducers/posts/reducer";
+import { types } from "./../../actions/types";
 
 const SharedButton = (props) => {
-    console.log(props);
-//   submitEvent(){
-//     //   if(this.props.emitEvent){
-//     //       this.props.emitEvent();
-//     //   }
-//   }
+  console.log(props);
+  const submitEvent = () => {
+    console.log("submitted inbutton");
+    getposts(2, types.GET_RESULT);
+    //   if(this.props.emitEvent){
+    //       this.props.emitEvent();
+    //   }
+  };
 
   return (
     <Button
-    variant="primary" className="buttoncss" onClick={() => this.submitEvent()}
+      variant="primary"
+      onClick={submitEvent}
+      className="buttoncss"
       data-test="buttonComponent"
     >
       {props.value}
@@ -20,4 +27,8 @@ const SharedButton = (props) => {
   );
 };
 
-export default SharedButton;
+const mapStateToProps = (state) => ({
+  resultvalue: state.resultvalue,
+});
+
+export default connect(mapStateToProps)(SharedButton);
