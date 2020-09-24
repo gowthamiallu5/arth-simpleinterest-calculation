@@ -16,7 +16,7 @@ const SharedButton = (props) => {
   };
 
   return (
-    <Button
+    <Button 
       variant="primary"
       onClick={submitEvent}
       className="buttoncss"
@@ -27,8 +27,8 @@ const SharedButton = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  resultvalue: state.resultvalue,
-});
+// const mapStateToProps = (state) => ({
+//   resultvalue: state.resultvalue,
+// });
 
-export default connect(mapStateToProps)(SharedButton);
+export default SharedButton;
