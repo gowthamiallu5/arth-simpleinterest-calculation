@@ -27,7 +27,7 @@ const Simple = () => {
           </div>
           <div>
             <label>Time(in Months)</label>
-            <input type="text" type="number" name="time" placeholder="0" min="0" oninput="validity.valid||(value='');"/>
+            <input type="text" type="number" name="time" placeholder="0" min="0" required oninput="validity.valid||(value='');"/>
           </div>
           <button type="submit" data-test="button">
             Simple-Interest
