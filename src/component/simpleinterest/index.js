@@ -19,15 +19,15 @@ const Simple = () => {
         >
           <div>
             <label>Principal</label>
-            <input type="text" name="Principal Amount" placeholder="0" />
+            <input type="text" type="number" name="Principal Amount" placeholder="0" min="0" required oninput="validity.valid||(value='');"/>
           </div>
           <div>
             <label>Rate</label>
-            <input type="text" name="rate" placeholder="0" />
+            <input type="text" type="number" name="rate" placeholder="0" min="0" required oninput="validity.valid||(value='');"/>
           </div>
           <div>
             <label>Time(in Months)</label>
-            <input type="text" name="time" placeholder="0" />
+            <input type="text" type="number" name="time" placeholder="0" min="0" oninput="validity.valid||(value='');"/>
           </div>
           <button type="submit" data-test="button">
             Simple-Interest
