@@ -45,7 +45,7 @@ const Arthemetic = (props) => {
     <div data-test="Arthemeticcomponent">
       <section className="arth">
         <Headline
-          header="ARTHEMETIC OPERATIONS"
+          header="ARITHMETIC OPERATIONS"
           desc="Addition,substraction,multiplication,division"
         />
         <div className="arthdiv">
@@ -62,7 +62,7 @@ const Arthemetic = (props) => {
             />
           </div>
           <div className="inputdiv">
-            <label className="labelinput">user input 1</label>
+            <label className="labelinput">user input 2</label>
             <input
               data-test="inputnumber2"
               className="inputtext"

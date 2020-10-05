@@ -18,14 +18,14 @@ const Header = (props) => {
           <div>
             <ul className="header">
               <li>
-                <Link to="/">Arthemetic</Link>
+                <Link to="/">Arithmetic</Link>
               </li>
               <li>
                 <Link to="/Simpleinterest">Simple Interest</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/Dummyapi">Dummy api</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/Weather">Temperature</Link>
               </li>
@@ -34,7 +34,7 @@ const Header = (props) => {
               <Switch>
                 <Route exact path="/" component={Arthemetic} />
                 <Route path="/Simpleinterest" component={Simple} />
-                <Route path="/Dummyapi" component={Dummyapi} />
+                {/* <Route path="/Dummyapi" component={Dummyapi} /> */}
                 <Route path="/weather" component={Weather} />
               </Switch>
             </div>
