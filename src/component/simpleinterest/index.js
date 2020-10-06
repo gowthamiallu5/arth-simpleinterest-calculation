@@ -5,7 +5,12 @@ const Simple = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
   };
-
+  const [princ, setPrinc] = useState("0");
+  const [rate, setRate] = useState("");
+  const [time, setTime] = useState("");
+  const [simple, setSimple] = useState(0);
+  const [total, setTotal] = useState(0);
+  
   return (
     <div className="simple-interest">
       <section className="si-func">
@@ -19,15 +24,42 @@ const Simple = () => {
         >
           <div>
             <label>Principal</label>
-            <input type="text" type="number" name="Principal Amount" placeholder="0" min="0" required oninput="validity.valid||(value='');"/>
+            <input 
+            type="number" 
+            value={princ} 
+            name="Principal Amount" 
+            placeholder="0" 
+            min="0" 
+            required 
+            oninput="validity.valid||(value='');"
+            onChange={(e) => setPrinc(parseInt(e.target.value))}
+            />
           </div>
           <div>
             <label>Rate</label>
-            <input type="text" type="number" name="rate" placeholder="0" min="0" required oninput="validity.valid||(value='');"/>
+            <input 
+            type="number" 
+            value={rate} 
+            name="rate" 
+            placeholder="0" 
+            min="0" 
+            required 
+            oninput="validity.valid||(value='');"
+            onChange={(e) => setRate(parseInt(e.target.value))}
+            />
           </div>
           <div>
             <label>Time(in Months)</label>
-            <input type="text" type="number" name="time" placeholder="0" min="0" required oninput="validity.valid||(value='');"/>
+            <input 
+            type="number" 
+            value={time} 
+            name="time" 
+            placeholder="0" 
+            min="0" 
+            required 
+            oninput="validity.valid||(value='');"
+            onChange={(e) => setTime(parseInt(e.target.value))}
+            />
           </div>
           <button type="submit" data-test="button">
             Simple-Interest
@@ -41,7 +73,8 @@ const Simple = () => {
               disabled
             />
           </div>
-          <p>Amount = {}</p>
+          {/* //simple+total */}
+          <p>Amount = {total}</p>
         </form>
       </section>
     </div>
