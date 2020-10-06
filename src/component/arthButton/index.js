@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "./styles.scss";
 import { connect } from "react-redux";
-import { getposts } from "../../reducers/posts/reducer";
-import { types } from "./../../actions/types";
+
 
 const SharedButton = (props) => {
   console.log(props);

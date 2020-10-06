@@ -1,57 +1,138 @@
-import { types } from "./types";
-import axios from "axios";
-const headers = {
-  'Access-Control-Allow-Origin': '*'
+import { types } from './types';
+import { calculationService } from './../services/calculations.service';
+
+
+export const calculationactions = {
+    addition,
+    substration,
+    multiplication,
+    division,
+    simpleinterest,
+    wheather
+};
+
+
+function addition(data) {
+    return dispatch => {
+        dispatch(request({ data }));
+
+        calculationService.addition(data)
+            .then(
+                result => {
+                    console.log('inactions', result);
+
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(result) { return { type: types.GET_ADDITION, result } }
+    function success(result) { return { type: types.GET_ADDITION, result } }
+    function failure(error) { return { type: types.GET_ADDITION, error } }
 }
 
-const fetchPosts = async () => {
-  // axios.create({
-  //   baseURL: `http://honeywellpoc.ap-south-1.elasticbeanstalk.com/`
-  // });
-  console.log("infetchdata");
-  const data ={
-    "a":1,
-    "b":2
-  }
-  await axios.post('http://honeywellpoc.ap-south-1.elasticbeanstalk.com/api/Operations/add',data)   
-  .then((response) => { 
-    console.log(response);
-    
-      return {
-              type: types.GET_POSTS,
-               payload: response,
-             };
-  }).catch((error) => {    
-      console.log(error)
-  })
- 
+function substration(data) {
+    return dispatch => {
+        dispatch(request({ data }));
 
-  // await axios.post('http://localhost:4010/')   
-  // .then((response) => { 
-  //   console.log(response);
-    
-  //     return {
-  //             type: types.GET_POSTS,
-  //              payload: response,
-  //            };
-  // }).catch((error) => {    
-  //     console.log(error)
-  // })
- 
-};
+        calculationService.substration(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
 
-export const fetchAddition = () => async (dispatch) => {
-  await axios
-    .get("https://jsonplaceholder.typicode.com/posts?_limit=10")
-    .then((res) => {
-      dispatch({
-        type: types.GET_ADDITION,
-        payload: res.data,
-      });
-    })
-    .catch((err) => {
-      // console.log(err);
-    });
-};
+    function request(result) { return { type: types.GET_SUBSTRACTION, result } }
+    function success(result) { return { type: types.GET_SUBSTRACTION, result } }
+    function failure(error) { return { type: types.GET_SUBSTRACTION, error } }
+}
+function multiplication(data) {
+    return dispatch => {
+        dispatch(request({ data }));
 
-export default fetchPosts ;
+        calculationService.multiplication(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(result) { return { type: types.GET_MULTIPLICATION, result } }
+    function success(result) { return { type: types.GET_MULTIPLICATION, result } }
+    function failure(error) { return { type: types.GET_MULTIPLICATION, error } }
+}
+function division(data) {
+    return dispatch => {
+        dispatch(request({ data }));
+
+        calculationService.division(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(result) { return { type: types.GET_ADDITION, result } }
+    function success(result) { return { type: types.GET_ADDITION, result } }
+    function failure(error) { return { type: types.GET_ADDITION, error } }
+}
+
+function simpleinterest(data) {
+    return dispatch => {
+      dispatch(request({ data }));
+
+        calculationService.simpleinterest(data)
+            .then(
+                result => {
+                    console.log('inactions', result);
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(result) { return { type: types.GET_SIMPLEINTEREST, result } }
+    function success(result) { return { type: types.GET_SIMPLEINTEREST, result } }
+    function failure(error) { return { type: types.GET_SIMPLEINTEREST, error } }
+}
+function wheather(data) {
+    return dispatch => {
+        dispatch(request({ data }));
+
+        calculationService.wheather(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(result) { return { type: types.GET_WHEATHER, result } }
+    function success(result) { return { type: types.GET_WHEATHER, result } }
+    function failure(error) { return { type: types.GET_WHEATHER, error } }
+}
+
+
+
+
+

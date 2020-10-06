@@ -1,8 +1,15 @@
 export const types={
     GET_POSTS:'getPosts',
     GET_RESULT:'getresult',
-    GET_ADDITION:'getaddition',
-    GET_SUBSTRACTION:'getsubstraction',
-    GET_MULTIPLICATION:'getmultiplication',
-    GET_DIVISION:'getdivision'
+
+
+    GET_ADDITION:'GET_ADDITION',
+    GET_SUBSTRACTION:'GET_SUBSTRACTION',
+    GET_MULTIPLICATION:'GET_MULTIPLICATION',
+    GET_DIVISION:'GET_DIVISION',
+
+
+    GET_SIMPLEINTEREST:'GET_SIMPLEINTEREST',
+
+    GET_WHEATHER:'GET_WHEATHER'
 }
