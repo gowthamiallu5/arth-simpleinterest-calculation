@@ -2,17 +2,10 @@ import React, { useState } from "react";
 import Headline from "./../headline/index";
 import SharedButton from "./../arthButton/index";
 import "./styles.scss";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
 const Arthemetic = (props) => {
-  // const initialState={
-  //   arth:{
-  //     number1:0,
-  //     number2:0,
-  //     result:0
-  //   }
-  // }
-  // const [state, setState] = useState(initialState);
+  const result = useSelector(state => state.calculations.result);
   var NAV_BUTTONS = [
     { value: "+ Add", operation: "add" },
     { value: "- Subtract", operation: "subtract" },
@@ -21,21 +14,15 @@ const Arthemetic = (props) => {
   ];
   const [number1, setNumber1] = useState(0);
   const [number2, setNumber2] = useState(0);
-  const [total, setTotal] = useState(0);
-
-  const handleSubmit = () => {
-    console.log("on submitted");
-    
-  };
 
   
-
   var navButtons = NAV_BUTTONS.map((button, index) => {
     return (
       <SharedButton
         value={button.value}
         key={index}
         operation={button.operation}
+        number1 = {number1}
         number2={number2}
       />
     );
@@ -48,7 +35,7 @@ const Arthemetic = (props) => {
           header="ARITHMETIC OPERATIONS"
           desc="Addition,substraction,multiplication,division"
         />
-        <form className="arthdiv" onSubmit={handleSubmit}>
+        <div className="arthdiv">
           <div className="inputdiv">
             <label className="labelinput">user input 1</label>
             <input
@@ -74,8 +61,8 @@ const Arthemetic = (props) => {
             />
           </div>
           <div className="buttons">{navButtons}</div>
-          <h1 className="result">Result = {total}</h1>
-        </form>
+          <h1 className="result">Result = {result}</h1>
+          </div>
       </section>
     </div>
   );
