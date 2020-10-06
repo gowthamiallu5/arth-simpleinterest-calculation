@@ -2,15 +2,32 @@ import React, { useState } from "react";
 import "./styles.scss";
 
 const Simple = () => {
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-  };
-  const [princ, setPrinc] = useState("0");
+
+  const [princ, setPrinc] = useState("");
   const [rate, setRate] = useState("");
   const [time, setTime] = useState("");
   const [simple, setSimple] = useState(0);
   const [total, setTotal] = useState(0);
+
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    debugger
+    const url = "/api/Interest/simpleInterest";
+    const toServer = {
+      "principleAmount": princ,
+      "year": time,
+      "rate": rate
+    }
+    console.log(toServer);
+    
+    setTotal(rate + princ);
+  };
+
   
+  
+ 
+
   return (
     <div className="simple-interest">
       <section className="si-func">
@@ -27,7 +44,7 @@ const Simple = () => {
             <input 
             type="number" 
             value={princ} 
-            name="Principal Amount" 
+            name="principal" 
             placeholder="0" 
             min="0" 
             required 
