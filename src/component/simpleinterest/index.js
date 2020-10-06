@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import { useDispatch, useSelector } from 'react-redux';
-import {calculationactions} from './../../actions/index'
+import { calculationactions } from './../../actions/index'
 
 const Simple = () => {
-  const result = useSelector(state => state);
+  const result = useSelector(state => state.calculations.result);
   const [princ, setPrinc] = useState("");
   const [rate, setRate] = useState("");
   const [time, setTime] = useState("");
   const [simple, setSimple] = useState(0);
-  const [total, setTotal] = useState(0);
   const dispatch = useDispatch();
 
   const handleFormSubmit = (e) => {
@@ -18,16 +17,11 @@ const Simple = () => {
       "principleAmount": princ,
       "year": time,
       "rate": rate
-    } 
-     dispatch(calculationactions.simpleinterest(toServer));
-     console.log('statevalue',result);
-    
-    setTotal(rate + princ);
+    }
+    dispatch(calculationactions.simpleinterest(toServer));
+
   };
 
-  
-  
- 
 
   return (
     <div className="simple-interest">
@@ -42,57 +36,47 @@ const Simple = () => {
         >
           <div>
             <label>Principal</label>
-            <input 
-            type="number" 
-            value={princ} 
-            name="principal" 
-            placeholder="0" 
-            min="0" 
-            required 
-            onInput="validity.valid||(value='');"
-            onChange={(e) => setPrinc(parseInt(e.target.value))}
+            <input
+              type="number"
+              value={princ}
+              name="principal"
+              placeholder={0}
+              min={0}
+              required
+              onInput="validity.valid||(value='');"
+              onChange={(e) => setPrinc(parseInt(e.target.value))}
             />
           </div>
           <div>
             <label>Rate</label>
-            <input 
-            type="number" 
-            value={rate} 
-            name="rate" 
-            placeholder="0" 
-            min="0" 
-            required 
-            onInput="validity.valid||(value='');"
-            onChange={(e) => setRate(parseInt(e.target.value))}
+            <input
+              type="number"
+              value={rate}
+              name="rate"
+              placeholder={0}
+              min={0}
+              required
+              onInput="validity.valid||(value='');"
+              onChange={(e) => setRate(parseInt(e.target.value))}
             />
           </div>
           <div>
             <label>Time(in Months)</label>
-            <input 
-            type="number" 
-            value={time} 
-            name="time" 
-            placeholder="0" 
-            min="0" 
-            required 
-            onInput="validity.valid||(value='');"
-            onChange={(e) => setTime(parseInt(e.target.value))}
+            <input
+              type="number"
+              value={time}
+              name="time"
+              placeholder={0}
+              min={0}
+              required
+              onInput="validity.valid||(value='');"
+              onChange={(e) => setTime(parseInt(e.target.value))}
             />
           </div>
           <button type="submit" data-test="button">
             Simple-Interest
           </button>
-          <div>
-            <label>Simple Interest</label>
-            <input
-              type="text"
-              name="simple-interest"
-              placeholder="0"
-              disabled
-            />
-          </div>
-          {/* //simple+total */}
-          <p>Amount = {total}</p>
+          <p>Simple Interest = {result}</p>
         </form>
       </section>
     </div>

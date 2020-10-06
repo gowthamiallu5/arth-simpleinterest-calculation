@@ -1,6 +1,10 @@
 import { types } from './../actions/types';
 
-export function calculations(state = {}, action) {
+const initialState = {
+    result: 0
+}
+
+export function calculations(state = initialState, action) {
     switch (action.type) {
         case types.GET_ADDITION:
             return {
@@ -21,8 +25,14 @@ export function calculations(state = {}, action) {
         case types.GET_SIMPLEINTEREST:
             console.log('inreducer', action);
             return {
-                result: action.result
+                ...state,
+                result: action.result.result
             }
+            console.log('stateinreducer', state);
+
+        //    {
+        //     result: action.result
+        // }
         case types.GET_WHEATHER:
             return {
                 result: action.result
