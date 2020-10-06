@@ -1,6 +1,9 @@
-import {combineReducers} from 'redux'
-import getposts from './posts/reducer';
+import {combineReducers} from 'redux';
+import {calculations} from './calculations.reducer';
 
-export default combineReducers({
-    getposts
-})
+
+const rootReducer = combineReducers({
+    calculations
+});
+
+export default rootReducer;
