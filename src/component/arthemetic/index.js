@@ -24,7 +24,8 @@ const Arthemetic = (props) => {
   const [total, setTotal] = useState(0);
 
   const handleSubmit = () => {
-    console.log("submitted");
+    console.log("on submitted");
+    
   };
 
   
@@ -32,7 +33,6 @@ const Arthemetic = (props) => {
   var navButtons = NAV_BUTTONS.map((button, index) => {
     return (
       <SharedButton
-        onClick={handleSubmit}
         value={button.value}
         key={index}
         operation={button.operation}
@@ -48,7 +48,7 @@ const Arthemetic = (props) => {
           header="ARITHMETIC OPERATIONS"
           desc="Addition,substraction,multiplication,division"
         />
-        <div className="arthdiv">
+        <form className="arthdiv" onSubmit={handleSubmit}>
           <div className="inputdiv">
             <label className="labelinput">user input 1</label>
             <input
@@ -56,8 +56,8 @@ const Arthemetic = (props) => {
               className="inputtext"
               type="number"
               value={number1}
-              placeholder={0}
-              name="number1"
+              placeholder={0} required="required"
+              name="number1" min={0} 
               onChange={(e) => setNumber1(parseInt(e.target.value))}
             />
           </div>
@@ -68,14 +68,14 @@ const Arthemetic = (props) => {
               className="inputtext"
               type="number"
               value={number2}
-              placeholder={0}
-              name="number2"
+              placeholder={0} required="required"
+              name="number2" min={0}
               onChange={(e) => setNumber2(parseInt(e.target.value))}
             />
           </div>
           <div className="buttons">{navButtons}</div>
           <h1 className="result">Result = {total}</h1>
-        </div>
+        </form>
       </section>
     </div>
   );

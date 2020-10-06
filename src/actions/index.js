@@ -1,20 +1,43 @@
 import { types } from "./types";
 import axios from "axios";
+const headers = {
+  'Access-Control-Allow-Origin': '*'
+}
 
 const fetchPosts = async () => {
+  // axios.create({
+  //   baseURL: `http://honeywellpoc.ap-south-1.elasticbeanstalk.com/`
+  // });
   console.log("infetchdata");
-  await axios
-    .get("https://reqres.in/api/users?page=2")
-    .then((res) => {
-      console.log("res", res);
+  const data ={
+    "a":1,
+    "b":2
+  }
+  await axios.post('http://honeywellpoc.ap-south-1.elasticbeanstalk.com/api/Operations/add',data)   
+  .then((response) => { 
+    console.log(response);
+    
       return {
-        type: types.GET_POSTS,
-        payload: res,
-      };
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+              type: types.GET_POSTS,
+               payload: response,
+             };
+  }).catch((error) => {    
+      console.log(error)
+  })
+ 
+
+  // await axios.post('http://localhost:4010/')   
+  // .then((response) => { 
+  //   console.log(response);
+    
+  //     return {
+  //             type: types.GET_POSTS,
+  //              payload: response,
+  //            };
+  // }).catch((error) => {    
+  //     console.log(error)
+  // })
+ 
 };
 
 export const fetchAddition = () => async (dispatch) => {

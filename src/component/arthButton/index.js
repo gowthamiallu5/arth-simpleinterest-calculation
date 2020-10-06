@@ -9,7 +9,7 @@ const SharedButton = (props) => {
   console.log(props);
   const submitEvent = () => {
     console.log("submitted inbutton");
-    getposts(2, types.GET_RESULT);
+   // getposts(2, types.GET_RESULT);
     //   if(this.props.emitEvent){
     //       this.props.emitEvent();
     //   }
@@ -18,7 +18,7 @@ const SharedButton = (props) => {
   return (
     <Button 
       variant="primary"
-      onClick={submitEvent}
+      type="submit"
       className="buttoncss"
       data-test="buttonComponent"
     >
