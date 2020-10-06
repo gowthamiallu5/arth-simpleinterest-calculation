@@ -19,6 +19,7 @@ export function calculations(state = {}, action) {
                 result: action.result
             }
         case types.GET_SIMPLEINTEREST:
+            console.log('inreducer', action);
             return {
                 result: action.result
             }

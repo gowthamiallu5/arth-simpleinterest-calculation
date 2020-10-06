@@ -60,14 +60,26 @@ async function division(data) {
 }
 
 async function simpleinterest(data) {
-    await axios.post(API_URL + 'api/Operations/add', data)
-        .then((response) => {
-            console.log(response);
+    console.log('insercice before sending',data);
+    // await axios.post(API_URL + 'api/Interest/simpleInterest', data)
+    //     .then((response) => {
+    //         console.log('inservice', response.data.result);
+    //         return response.data.result;
+    //     }).catch((error) => {
+    //         console.log(error)
+    //     })
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify( data)
+    };
 
+    return fetch(API_URL + 'api/Interest/simpleInterest', requestOptions)
+        .then(handleResponse)
+        .then(response => {
+            console.log('inservice', response);
             return response;
-        }).catch((error) => {
-            console.log(error)
-        })
+        });
 }
 
 async function wheather(data) {
@@ -79,4 +91,22 @@ async function wheather(data) {
         }).catch((error) => {
             console.log(error)
         })
+}
+
+function handleResponse(response) {
+    return response.text().then(text => {
+        console.log('text',text);
+        
+        const data = text && JSON.parse(text);
+        if (!response.ok) {
+            if (response.status === 401) {
+              console.log('401 error');
+              
+            }
+            const error = (data && data.message) || response.statusText;
+            return Promise.reject(error);
+        }
+
+        return data;
+    });
 }

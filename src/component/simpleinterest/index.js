@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import "./styles.scss";
+import { useDispatch, useSelector } from 'react-redux';
+import {calculationactions} from './../../actions/index'
 
 const Simple = () => {
-
+  const result = useSelector(state => state);
   const [princ, setPrinc] = useState("");
   const [rate, setRate] = useState("");
   const [time, setTime] = useState("");
   const [simple, setSimple] = useState(0);
   const [total, setTotal] = useState(0);
-
+  const dispatch = useDispatch();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    debugger
-    const url = "/api/Interest/simpleInterest";
     const toServer = {
       "principleAmount": princ,
       "year": time,
       "rate": rate
-    }
-    console.log(toServer);
+    } 
+     dispatch(calculationactions.simpleinterest(toServer));
+     console.log('statevalue',result);
     
     setTotal(rate + princ);
   };
@@ -48,7 +49,7 @@ const Simple = () => {
             placeholder="0" 
             min="0" 
             required 
-            oninput="validity.valid||(value='');"
+            onInput="validity.valid||(value='');"
             onChange={(e) => setPrinc(parseInt(e.target.value))}
             />
           </div>
@@ -61,7 +62,7 @@ const Simple = () => {
             placeholder="0" 
             min="0" 
             required 
-            oninput="validity.valid||(value='');"
+            onInput="validity.valid||(value='');"
             onChange={(e) => setRate(parseInt(e.target.value))}
             />
           </div>
@@ -74,7 +75,7 @@ const Simple = () => {
             placeholder="0" 
             min="0" 
             required 
-            oninput="validity.valid||(value='');"
+            onInput="validity.valid||(value='');"
             onChange={(e) => setTime(parseInt(e.target.value))}
             />
           </div>

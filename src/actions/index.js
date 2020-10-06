@@ -1,9 +1,9 @@
 import { types } from './types';
-import { calculationService } from './../services';
+import { calculationService } from './../services/calculations.service';
 
 
-export const userActions = {
-  addition,
+export const calculationactions = {
+    addition,
     substration,
     multiplication,
     division,
@@ -13,120 +13,123 @@ export const userActions = {
 
 
 function addition(data) {
-  return dispatch => {
-      dispatch(request({ data }));
+    return dispatch => {
+        dispatch(request({ data }));
 
-      calculationService.addition(data)
-          .then(
-              result => { 
-                  dispatch(success(result));
-              },
-              error => {
-                  dispatch(failure(error.toString()));
-              }
-          );
-  };
+        calculationService.addition(data)
+            .then(
+                result => {
+                    console.log('inactions', result);
 
-  function request(result) { return { type: types.GET_ADDITION, result } }
-  function success(result) { return { type: types.GET_ADDITION, result } }
-  function failure(error) { return { type: types.GET_ADDITION, error } }
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(result) { return { type: types.GET_ADDITION, result } }
+    function success(result) { return { type: types.GET_ADDITION, result } }
+    function failure(error) { return { type: types.GET_ADDITION, error } }
 }
 
 function substration(data) {
-  return dispatch => {
-      dispatch(request({ data }));
+    return dispatch => {
+        dispatch(request({ data }));
 
-      calculationService.substration(data)
-          .then(
-              result => { 
-                  dispatch(success(result));
-              },
-              error => {
-                  dispatch(failure(error.toString()));
-              }
-          );
-  };
+        calculationService.substration(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
 
-  function request(result) { return { type: types.GET_SUBSTRACTION, result } }
-  function success(result) { return { type: types.GET_SUBSTRACTION, result } }
-  function failure(error) { return { type: types.GET_SUBSTRACTION, error } }
+    function request(result) { return { type: types.GET_SUBSTRACTION, result } }
+    function success(result) { return { type: types.GET_SUBSTRACTION, result } }
+    function failure(error) { return { type: types.GET_SUBSTRACTION, error } }
 }
 function multiplication(data) {
-  return dispatch => {
-      dispatch(request({ data }));
+    return dispatch => {
+        dispatch(request({ data }));
 
-      calculationService.multiplication(data)
-          .then(
-              result => { 
-                  dispatch(success(result));
-              },
-              error => {
-                  dispatch(failure(error.toString()));
-              }
-          );
-  };
+        calculationService.multiplication(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
 
-  function request(result) { return { type: types.GET_MULTIPLICATION, result } }
-  function success(result) { return { type: types.GET_MULTIPLICATION, result } }
-  function failure(error) { return { type: types.GET_MULTIPLICATION, error } }
+    function request(result) { return { type: types.GET_MULTIPLICATION, result } }
+    function success(result) { return { type: types.GET_MULTIPLICATION, result } }
+    function failure(error) { return { type: types.GET_MULTIPLICATION, error } }
 }
 function division(data) {
-  return dispatch => {
-      dispatch(request({ data }));
+    return dispatch => {
+        dispatch(request({ data }));
 
-      calculationService.division(data)
-          .then(
-              result => { 
-                  dispatch(success(result));
-              },
-              error => {
-                  dispatch(failure(error.toString()));
-              }
-          );
-  };
+        calculationService.division(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
 
-  function request(result) { return { type: types.GET_ADDITION, result } }
-  function success(result) { return { type: types.GET_ADDITION, result } }
-  function failure(error) { return { type: types.GET_ADDITION, error } }
+    function request(result) { return { type: types.GET_ADDITION, result } }
+    function success(result) { return { type: types.GET_ADDITION, result } }
+    function failure(error) { return { type: types.GET_ADDITION, error } }
 }
 
 function simpleinterest(data) {
-  return dispatch => {
+    return dispatch => {
       dispatch(request({ data }));
 
-      calculationService.simpleinterest(data)
-          .then(
-              result => { 
-                  dispatch(success(result));
-              },
-              error => {
-                  dispatch(failure(error.toString()));
-              }
-          );
-  };
+        calculationService.simpleinterest(data)
+            .then(
+                result => {
+                    console.log('inactions', result);
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
 
-  function request(result) { return { type: types.GET_SIMPLEINTEREST, result } }
-  function success(result) { return { type: types.GET_SIMPLEINTEREST, result } }
-  function failure(error) { return { type: types.GET_SIMPLEINTEREST, error } }
+    function request(result) { return { type: types.GET_SIMPLEINTEREST, result } }
+    function success(result) { return { type: types.GET_SIMPLEINTEREST, result } }
+    function failure(error) { return { type: types.GET_SIMPLEINTEREST, error } }
 }
 function wheather(data) {
-  return dispatch => {
-      dispatch(request({ data }));
+    return dispatch => {
+        dispatch(request({ data }));
 
-      calculationService.wheather(data)
-          .then(
-              result => { 
-                  dispatch(success(result));
-              },
-              error => {
-                  dispatch(failure(error.toString()));
-              }
-          );
-  };
+        calculationService.wheather(data)
+            .then(
+                result => {
+                    dispatch(success(result));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
 
-  function request(result) { return { type: types.GET_WHEATHER, result } }
-  function success(result) { return { type: types.GET_WHEATHER, result } }
-  function failure(error) { return { type: types.GET_WHEATHER, error } }
+    function request(result) { return { type: types.GET_WHEATHER, result } }
+    function success(result) { return { type: types.GET_WHEATHER, result } }
+    function failure(error) { return { type: types.GET_WHEATHER, error } }
 }
 
 
