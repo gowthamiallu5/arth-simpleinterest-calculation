@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://honeywellpoc-ui.s3-website.ap-south-1.amazonaws.com/'
+const API_URL = 'http://honeywellpoc.ap-south-1.elasticbeanstalk.com/'
 
 
 export const calculationService = {
