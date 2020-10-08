@@ -21,13 +21,13 @@ const Header = (props) => {
                 <Link to="/">Arithmetic</Link>
               </li>
               <li>
-                <Link to="/#/Simpleinterest">Simple Interest</Link>
+                <Link to="/Simpleinterest">Simple Interest</Link>
               </li>
               {/* <li>
                 <Link to="/Dummyapi">Dummy api</Link>
               </li> */}
               <li>
-                <Link to="/#/Weather">Temperature</Link>
+                <Link to="/Weather">Temperature</Link>
               </li>
             </ul>
             <div className="content">
