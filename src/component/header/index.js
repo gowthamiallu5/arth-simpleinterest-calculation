@@ -11,7 +11,7 @@ const Header = (props) => {
   return (
     <header data-test="headerComponent">
       <div className="wrap">
-        <Router>
+        <Router >
           <div className="logo">
             <img data-test="imagelogo" src={Logo} alt="logo" />
           </div>

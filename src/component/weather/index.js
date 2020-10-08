@@ -1,18 +1,20 @@
 import React,{useState} from "react";
 import "./styles.scss";
+import { useDispatch, useSelector } from 'react-redux';
+import { calculationactions } from './../../actions/index'
 
 //function component as an arrow function
 const Weather = () => {
-
+  const result = useSelector(state => state.calculations.result);
   const [city, setCity] = useState("");
-  
+  const dispatch = useDispatch();
+
   const handle = (e) => {
     e.preventDefault();
     const toServer = {
       "city": city,
-     
     }
-    console.log(toServer);
+    dispatch(calculationactions.wheather(toServer));
   };
 
   return (
@@ -26,9 +28,10 @@ const Weather = () => {
           Get Forecast
         </button>
         <div className="weather-info">
-          <p>Date : {}</p>
-          <p>City : {}</p>
-          <p>Temperature : {}</p>
+          <p>Date : {result.date}</p>
+          <p>City : {result.city}</p>
+          <p>Temperature in Fahrenheit: {result.temperatureF} °F</p>
+          <p>Temperature in Celsius: {result.temperatureC} °C</p>
         </div>
       </form>
     </section>

@@ -7,20 +7,24 @@ const initialState = {
 export function calculations(state = initialState, action) {
     switch (action.type) {
         case types.GET_ADDITION:
-            return {
-                result: action.result
+           return {
+                ...state,
+                result: action.result.result
             }
         case types.GET_SUBSTRACTION:
-            return {
-                result: action.result
+           return {
+                ...state,
+                result: action.result.result
             }
         case types.GET_MULTIPLICATION:
-            return {
-                result: action.result
+           return {
+                ...state,
+                result: action.result.result
             }
         case types.GET_DIVISION:
-            return {
-                result: action.result
+           return {
+                ...state,
+                result: action.result.result
             }
         case types.GET_SIMPLEINTEREST:
             console.log('inreducer', action);
@@ -29,12 +33,10 @@ export function calculations(state = initialState, action) {
                 result: action.result.result
             }
             console.log('stateinreducer', state);
-
-        //    {
-        //     result: action.result
-        // }
         case types.GET_WHEATHER:
-            return {
+            console.log('inreducer', action);
+           return {
+                ...state,
                 result: action.result
             }
         default:
