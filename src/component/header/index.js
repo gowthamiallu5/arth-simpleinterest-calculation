@@ -12,7 +12,7 @@ const Header = (props) => {
     <header data-test="headerComponent">
       <div className="wrap">
       <HashRouter>
-        <Router >
+        {/* <Router > */}
           <div className="logo">
             <img data-test="imagelogo" src={Logo} alt="logo" />
           </div>
@@ -22,25 +22,25 @@ const Header = (props) => {
                 <Link to="/">Arithmetic</Link>
               </li>
               <li>
-                <Link to="/#/Simpleinterest">Simple Interest</Link>
+                <Link to="/Simpleinterest">Simple Interest</Link>
               </li>
               {/* <li>
                 <Link to="/Dummyapi">Dummy api</Link>
               </li> */}
               <li>
-                <Link to="/#/Weather">Temperature</Link>
+                <Link to="/Weather">Temperature</Link>
               </li>
             </ul>
             <div className="content">
               <Switch>
                 <Route exact path="/" component={Arthemetic} />
-                <Route path="/#/Simpleinterest" component={Simple} />
+                <Route path="/Simpleinterest" component={Simple} />
                 {/* <Route path="/Dummyapi" component={Dummyapi} /> */}
-                <Route path="/#/weather" component={Weather} />
+                <Route path="/weather" component={Weather} />
               </Switch>
             </div>
           </div>
-        </Router>
+        {/* </Router> */}
      </HashRouter>
       </div>
     </header>
