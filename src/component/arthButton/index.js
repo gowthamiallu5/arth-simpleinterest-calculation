@@ -3,10 +3,24 @@ import Button from "react-bootstrap/Button";
 import "./styles.scss";
 import { useDispatch } from 'react-redux';
 import { calculationactions } from './../../actions/index'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SharedButton = (props) => {
   console.log(props);
   const dispatch = useDispatch();
+  const error = () => {
+    toast.error(`Number cannot be blank`, {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
   const submitEvent = (e) => {
     e.preventDefault();
     const toServer = {
@@ -16,16 +30,28 @@ const SharedButton = (props) => {
     console.log("submitted inbutton", toServer);
     switch (props.operation) {
       case 'add':
-        dispatch(calculationactions.addition(toServer));
+        if(props.number1==="" || props.number2===""){
+          error();
+        }else{
+        dispatch(calculationactions.addition(toServer));}
         break;
       case 'subtract':
-        dispatch(calculationactions.substration(toServer));
+        if(props.number1==="" || props.number2===""){
+          error();
+        }else{
+        dispatch(calculationactions.substration(toServer));}
         break;
       case 'multiply':
-        dispatch(calculationactions.multiplication(toServer));
+        if(props.number1==="" || props.number2===""){
+          error();
+        }else{
+        dispatch(calculationactions.multiplication(toServer))};
         break;
       case 'divide':
-        dispatch(calculationactions.division(toServer));
+        if(props.number1==="" || props.number2===""){
+          error();
+        }else{
+        dispatch(calculationactions.division(toServer))};
         break;
 
       default:
