@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import Logo from "../../assets/graphics/logo.png";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link,HashRouter } from "react-router-dom";
 import Arthemetic from "./../arthemetic/index";
 import Simple from "./../simpleinterest/index";
 import Dummyapi from "./../dummyapi/index";
@@ -11,6 +11,7 @@ const Header = (props) => {
   return (
     <header data-test="headerComponent">
       <div className="wrap">
+      <HashRouter>
         <Router >
           <div className="logo">
             <img data-test="imagelogo" src={Logo} alt="logo" />
@@ -40,6 +41,7 @@ const Header = (props) => {
             </div>
           </div>
         </Router>
+     </HashRouter>
       </div>
     </header>
   );
