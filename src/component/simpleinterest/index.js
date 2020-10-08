@@ -9,9 +9,9 @@ const customId = "custom-id-si";
 
 const Simple = () => {
   const result = useSelector(state => state.calculations.result1);
-  const [princ, setPrinc] = useState(1);
-  const [rate, setRate] = useState(1);
-  const [time, setTime] = useState(1);
+  const [princ, setPrinc] = useState();
+  const [rate, setRate] = useState();
+  const [time, setTime] = useState();
   const [simple, setSimple] = useState(0);
   const dispatch = useDispatch();
 
@@ -30,12 +30,12 @@ const Simple = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(princ , rate, time)
-    if(princ==="" || princ<=0){
+    if(princ==="" || princ == undefined || princ<=0){
       error("Principal")
-    }else if(rate==="" || rate<=0){
+    }else if(rate===""|| rate==undefined || rate<=0){
       error("Rate")
 
-    }else if(time==="" || time<=0){
+    }else if(time==="" || time == undefined || time<=0){
       error("Time")
 
     }else {
@@ -105,7 +105,6 @@ const Simple = () => {
               name="time"
               placeholder={"Enter Time"}
               min={0}
-              required
               onInput="validity.valid||(value='');"
               onChange={(e) => setTime(e.target.value)}
             />
