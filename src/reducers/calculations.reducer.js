@@ -1,7 +1,8 @@
 import { types } from './../actions/types';
 
 const initialState = {
-    result: 0
+    result: 0,
+    result1:0
 }
 
 export function calculations(state = initialState, action) {
@@ -31,7 +32,7 @@ export function calculations(state = initialState, action) {
             console.log('inreducer', action);
             return {
                 ...state,
-                result: action.result.result
+                result: action.result.result1
             }
             console.log('stateinreducer', state);
         case types.GET_WHEATHER:

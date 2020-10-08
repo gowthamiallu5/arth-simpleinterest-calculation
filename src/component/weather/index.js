@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { calculationactions } from './../../actions/index';
@@ -14,7 +14,7 @@ const Weather = () => {
 
   const handle = (e) => {
     e.preventDefault();
-    if(city===""){
+    if (city === "") {
       toast.error('Cannot be blank', {
         toastId: customId,
         position: "bottom-center",
@@ -24,13 +24,24 @@ const Weather = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
-    }else{
-    const toServer = {
-      "city": city,
+      });
+    } else {
+      const toServer = {
+        "city": city,
+      }
+      dispatch(calculationactions.wheather(toServer));
     }
-    dispatch(calculationactions.wheather(toServer));}
   };
+
+
+  function dataalter(date) {
+    console.log('date', date);
+    var d = '';
+    if (date != undefined && date != "")
+      d = new Date(date).toLocaleDateString() + ' ' + new Date(date).toLocaleTimeString();
+    console.log('d', d);
+    return d
+  }
 
   return (
     <section className="main-cont">
@@ -49,12 +60,12 @@ const Weather = () => {
         <h1 className="head" data-test="header">
           Weather
         </h1>
-        <input type="text" placeholder="Enter City" maxLength="50" value={city}  onChange={(e) => setCity(e.target.value)} />
+        <input type="text" placeholder="Enter City" maxLength="50" value={city} onChange={(e) => setCity(e.target.value)} />
         <button type="submit" data-test="button">
           Get Forecast
         </button>
         <div className="weather-info">
-          <p>Date : {result.date}</p>
+          <p>Date : {dataalter(result.date)}</p>
           <p>City : {result.city}</p>
           <p>Temperature in Fahrenheit: {result.temperatureF} °F</p>
           <p>Temperature in Celsius: {result.temperatureC} °C</p>

@@ -25,7 +25,6 @@ const SharedButton = (props) => {
   }
   const submitEvent = (e) => {
     e.preventDefault();
-    debugger;
     const toServer = {
       "a": parseInt(props.number1),
       "b": parseInt(props.number2)
