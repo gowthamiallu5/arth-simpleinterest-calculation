@@ -6,12 +6,14 @@ import { calculationactions } from './../../actions/index'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const customId = "custom-id-arth";
 
 const SharedButton = (props) => {
   console.log(props);
   const dispatch = useDispatch();
   const error = () => {
     toast.error(`Number cannot be blank`, {
+      toastId: customId,
       position: "bottom-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -23,7 +25,6 @@ const SharedButton = (props) => {
   }
   const submitEvent = (e) => {
     e.preventDefault();
-    debugger;
     const toServer = {
       "a": parseInt(props.number1),
       "b": parseInt(props.number2)

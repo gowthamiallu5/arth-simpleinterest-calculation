@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 const Arthemetic = (props) => {
   const result = useSelector(state => state.calculations.result);
   var NAV_BUTTONS = [
