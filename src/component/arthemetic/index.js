@@ -29,19 +29,7 @@ const Arthemetic = (props) => {
       />
     );
   });
-  const handleVali = (e) => { 
-    if(e.target.value===""){
-      toast('🦄 Wow so easy!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });    }
-
-  }
+ 
   return (
     <div data-test="Arthemeticcomponent">
       <ToastContainer
@@ -70,7 +58,7 @@ const Arthemetic = (props) => {
               value={number1}
               placeholder={"Enter 1st Number"} required="required"
               name="number1" min={0} 
-              onChange={ (e) => setNumber1(parseInt(e.target.value))}
+              onChange={ (e) => setNumber1(e.target.value)}
             />
           </div>
           <div className="inputdiv">
@@ -82,7 +70,7 @@ const Arthemetic = (props) => {
               value={number2}
               placeholder={"Enter 2nd Number"} required="required"
               name="number2" min={0}
-              onChange={(e) => setNumber2(parseInt(e.target.value))}
+              onChange={(e) => setNumber2(e.target.value)}
             />
           </div>
           <div className="buttons">{navButtons}</div>

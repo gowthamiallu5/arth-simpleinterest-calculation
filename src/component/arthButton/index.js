@@ -23,9 +23,10 @@ const SharedButton = (props) => {
   }
   const submitEvent = (e) => {
     e.preventDefault();
+    debugger;
     const toServer = {
-      "a": props.number1,
-      "b": props.number2
+      "a": parseInt(props.number1),
+      "b": parseInt(props.number2)
     }
     console.log("submitted inbutton", toServer);
     switch (props.operation) {
