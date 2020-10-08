@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:wght@400;800&family=Roboto+Slab&display=swap');
+
 .main-cont {
   background: white;
   // height: 100vh;
@@ -10,7 +12,13 @@
   h1 {
     text-align: center;
   }
-  button {
+  .w-btn {
     width: 220px;
   }
-}
+  p{
+    font-family: 'Piazzolla', serif;
+    font-weight: 800;
+
+  }
+  }
+

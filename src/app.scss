@@ -37,6 +37,10 @@ body {
     background: rgb(141, 217, 252);
     cursor: pointer;
   }
+  button:hover{
+     color:#fffdfd;
+     background-color:#ff0202;
+    }
   section {
     width: 100%;
     max-width: 980px;
