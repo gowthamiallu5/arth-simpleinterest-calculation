@@ -30,37 +30,27 @@ const SharedButton = (props) => {
       "b": parseInt(props.number2)
     }
     console.log("submitted inbutton", toServer);
+    if(props.number1==="" || props.number2===""){
+      error();
+    }else{
     switch (props.operation) {
-      case 'add':
-        if(props.number1==="" || props.number2===""){
-          error();
-        }else{
-        dispatch(calculationactions.addition(toServer));}
+      case 'add': 
+        dispatch(calculationactions.addition(toServer));
         break;
       case 'subtract':
-        if(props.number1==="" || props.number2===""){
-          error();
-        }else{
-        dispatch(calculationactions.substration(toServer));}
+        dispatch(calculationactions.substration(toServer));
         break;
       case 'multiply':
-        if(props.number1==="" || props.number2===""){
-          error();
-        }else{
-        dispatch(calculationactions.multiplication(toServer))};
+        dispatch(calculationactions.multiplication(toServer))
         break;
       case 'divide':
-        if(props.number1==="" || props.number2===""){
-          error();
-        }else{
-        dispatch(calculationactions.division(toServer))};
+        dispatch(calculationactions.division(toServer))
         break;
-
       default:
         return 0
         break;
     }
-
+  }
   };
 
   return (
