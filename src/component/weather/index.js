@@ -11,15 +11,17 @@ const Weather = () => {
   const result = useSelector(state => state.calculations.result);
   const [city, setCity] = useState("");
   const dispatch = useDispatch();
-  const citiesarray = ['bangalore', 'hyderabad', 'goa', 'jaipur']
+  const citiesarray = ['select city', 'bangalore', 'hyderabad', 'goa', 'jaipur']
 
-  const cities = citiesarray.map(item => (
-    <option key={item} value={item}>{item}</option> 
+  const cities = citiesarray.map((item, index) => (
+    <option key={index} value={item}>{item}</option>
   ));
 
   const handle = (e) => {
     e.preventDefault();
-    if (city === "") {
+    console.log(city);
+
+    if (city === "" || city == 'select city') {
       toast.error('Cannot be blank', {
         toastId: customId,
         position: "bottom-center",
@@ -69,7 +71,7 @@ const Weather = () => {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         >
-         {cities}
+          {cities}
         </select>
         {/* <input type="text" placeholder="Enter City" maxLength="50" value={city} onChange={(e) => setCity(e.target.value)} /> */}
         <button type="submit" data-test="button">
