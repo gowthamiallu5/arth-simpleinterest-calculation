@@ -7,22 +7,23 @@ const initialState = {
 export function calculations(state = initialState, action) {
     switch (action.type) {
         case types.GET_ADDITION:
-           return {
+            return {
                 ...state,
                 result: action.result.result
             }
         case types.GET_SUBSTRACTION:
-           return {
+            return {
                 ...state,
                 result: action.result.result
             }
         case types.GET_MULTIPLICATION:
-           return {
+            return {
                 ...state,
                 result: action.result.result
             }
         case types.GET_DIVISION:
-           return {
+            console.log('inreducer', action);
+            return {
                 ...state,
                 result: action.result.result
             }
@@ -35,9 +36,15 @@ export function calculations(state = initialState, action) {
             console.log('stateinreducer', state);
         case types.GET_WHEATHER:
             console.log('inreducer', action);
-           return {
+            return {
                 ...state,
                 result: action.result
+            }
+        case types.GET_ERROR:
+            console.log('inerror', action);
+            return {
+                ...state,
+                result: action.error
             }
         default:
             return state

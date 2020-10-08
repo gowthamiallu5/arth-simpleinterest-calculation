@@ -114,9 +114,9 @@ function handleResponse(response) {
         
         const data = text && JSON.parse(text);
         if (!response.ok) {
-            if (response.status === 401) {
-              console.log('401 error');
-              
+            if (response.status === 400) {
+              console.log('401 error',response);
+              return Promise.reject(data.result);
             }
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);

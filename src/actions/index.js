@@ -31,7 +31,7 @@ function addition(data) {
 
     function request(result) { return { type: types.GET_ADDITION, result } }
     function success(result) { return { type: types.GET_ADDITION, result } }
-    function failure(error) { return { type: types.GET_ADDITION, error } }
+    function failure(error) { return { type: types.GET_ERROR, error } }
 }
 
 function substration(data) {
@@ -51,7 +51,7 @@ function substration(data) {
 
     function request(result) { return { type: types.GET_SUBSTRACTION, result } }
     function success(result) { return { type: types.GET_SUBSTRACTION, result } }
-    function failure(error) { return { type: types.GET_SUBSTRACTION, error } }
+    function failure(error) { return { type: types.GET_ERROR, error } }
 }
 function multiplication(data) {
     return dispatch => {
@@ -70,7 +70,7 @@ function multiplication(data) {
 
     function request(result) { return { type: types.GET_MULTIPLICATION, result } }
     function success(result) { return { type: types.GET_MULTIPLICATION, result } }
-    function failure(error) { return { type: types.GET_MULTIPLICATION, error } }
+    function failure(error) { return { type: types.GET_ERROR, error } }
 }
 function division(data) {
     return dispatch => {
@@ -89,7 +89,7 @@ function division(data) {
 
     function request(result) { return { type: types.GET_ADDITION, result } }
     function success(result) { return { type: types.GET_ADDITION, result } }
-    function failure(error) { return { type: types.GET_ADDITION, error } }
+    function failure(error) { return { type: types.GET_ERROR, error } }
 }
 
 function simpleinterest(data) {
@@ -110,7 +110,7 @@ function simpleinterest(data) {
 
     function request(result) { return { type: types.GET_SIMPLEINTEREST, result } }
     function success(result) { return { type: types.GET_SIMPLEINTEREST, result } }
-    function failure(error) { return { type: types.GET_SIMPLEINTEREST, error } }
+    function failure(error) { return { type: types.GET_ERROR, error } }
 }
 function wheather(data) {
     return dispatch => {
@@ -129,7 +129,7 @@ function wheather(data) {
 
     function request(result) { return { type: types.GET_WHEATHER, result } }
     function success(result) { return { type: types.GET_WHEATHER, result } }
-    function failure(error) { return { type: types.GET_WHEATHER, error } }
+    function failure(error) { return { type: types.GET_ERROR, error } }
 }
 
 
