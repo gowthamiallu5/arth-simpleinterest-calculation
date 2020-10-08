@@ -33,9 +33,9 @@ const Header = (props) => {
             <div className="content">
               <Switch>
                 <Route exact path="/" component={Arthemetic} />
-                <Route path="/#/Simpleinterest" component={Simple} />
+                <Route path="/Simpleinterest" component={Simple} />
                 {/* <Route path="/Dummyapi" component={Dummyapi} /> */}
-                <Route path="/#/weather" component={Weather} />
+                <Route path="/weather" component={Weather} />
               </Switch>
             </div>
           </div>
