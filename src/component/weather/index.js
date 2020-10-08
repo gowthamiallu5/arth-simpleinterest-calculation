@@ -5,7 +5,7 @@ import { calculationactions } from './../../actions/index';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
+const customId = "custom-id-wheather";
 //function component as an arrow function
 const Weather = () => {
   const result = useSelector(state => state.calculations.result);
@@ -16,6 +16,7 @@ const Weather = () => {
     e.preventDefault();
     if(city===""){
       toast.error('Cannot be blank', {
+        toastId: customId,
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,

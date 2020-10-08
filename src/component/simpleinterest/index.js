@@ -5,6 +5,8 @@ import { calculationactions } from './../../actions/index';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const customId = "custom-id-si";
+
 const Simple = () => {
   const result = useSelector(state => state.calculations.result);
   const [princ, setPrinc] = useState(1);
@@ -15,6 +17,7 @@ const Simple = () => {
 
   const error = (msg) => {
     toast.error(`${msg} cannot be blank or zero`, {
+      toastId: customId,
       position: "bottom-center",
       autoClose: 5000,
       hideProgressBar: false,
