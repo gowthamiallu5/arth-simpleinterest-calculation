@@ -1,30 +1,64 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import { useDispatch, useSelector } from 'react-redux';
-import { calculationactions } from './../../actions/index'
+import { calculationactions } from './../../actions/index';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Simple = () => {
   const result = useSelector(state => state.calculations.result);
-  const [princ, setPrinc] = useState("");
-  const [rate, setRate] = useState("");
-  const [time, setTime] = useState("");
+  const [princ, setPrinc] = useState(1);
+  const [rate, setRate] = useState(1);
+  const [time, setTime] = useState(1);
   const [simple, setSimple] = useState(0);
   const dispatch = useDispatch();
 
+  const error = (msg) => {
+    toast.error(`${msg} cannot be blank or zero`, {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const toServer = {
-      "principleAmount": princ,
-      "year": time,
-      "rate": rate
-    }
-    dispatch(calculationactions.simpleinterest(toServer));
+    console.log(princ , rate, time)
+    if(princ==="" || princ<=0){
+      error("Principal")
+    }else if(rate==="" || rate<=0){
+      error("Rate")
 
+    }else if(time==="" || time<=0){
+      error("Time")
+
+    }else {
+      const toServer = {
+      "principleAmount": parseInt(princ),
+      "year": parseInt(time),
+      "rate": parseInt(rate)
+    }
+      dispatch(calculationactions.simpleinterest(toServer));
+      }
   };
 
 
   return (
     <div className="simple-interest">
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <section className="si-func">
         <h1 className="head" data-test="head">
           Simple-Interest-Calculator
@@ -40,11 +74,11 @@ const Simple = () => {
               type="number"
               value={princ}
               name="principal"
-              placeholder={0}
+              placeholder={"Enter Principal"}
               min={0}
-              required
+            
               onInput="validity.valid||(value='');"
-              onChange={(e) => setPrinc(parseInt(e.target.value))}
+              onChange={(e) => setPrinc(e.target.value)}
             />
           </div>
           <div>
@@ -53,11 +87,11 @@ const Simple = () => {
               type="number"
               value={rate}
               name="rate"
-              placeholder={0}
+              placeholder={"Enter Rate"}
               min={0}
-              required
+              
               onInput="validity.valid||(value='');"
-              onChange={(e) => setRate(parseInt(e.target.value))}
+              onChange={(e) => setRate(e.target.value)}
             />
           </div>
           <div>
@@ -66,11 +100,11 @@ const Simple = () => {
               type="number"
               value={time}
               name="time"
-              placeholder={0}
+              placeholder={"Enter Time"}
               min={0}
               required
               onInput="validity.valid||(value='');"
-              onChange={(e) => setTime(parseInt(e.target.value))}
+              onChange={(e) => setTime(e.target.value)}
             />
           </div>
           <button type="submit" data-test="button">

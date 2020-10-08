@@ -3,6 +3,8 @@ import Headline from "./../headline/index";
 import SharedButton from "./../arthButton/index";
 import "./styles.scss";
 import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Arthemetic = (props) => {
   const result = useSelector(state => state.calculations.result);
@@ -12,8 +14,8 @@ const Arthemetic = (props) => {
     { value: "x Multiply", operation: "multiply" },
     { value: "/ Divide", operation: "divide" },
   ];
-  const [number1, setNumber1] = useState(0);
-  const [number2, setNumber2] = useState(0);
+  const [number1, setNumber1] = useState("");
+  const [number2, setNumber2] = useState("");
 
   
   var navButtons = NAV_BUTTONS.map((button, index) => {
@@ -27,9 +29,20 @@ const Arthemetic = (props) => {
       />
     );
   });
-
+ 
   return (
     <div data-test="Arthemeticcomponent">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+/>
       <section className="arth">
         <Headline
           header="ARITHMETIC OPERATIONS"
@@ -43,9 +56,9 @@ const Arthemetic = (props) => {
               className="inputtext"
               type="number"
               value={number1}
-              placeholder={0} required="required"
+              placeholder={"Enter 1st Number"} required="required"
               name="number1" min={0} 
-              onChange={(e) => setNumber1(parseInt(e.target.value))}
+              onChange={ (e) => setNumber1(e.target.value)}
             />
           </div>
           <div className="inputdiv">
@@ -55,9 +68,9 @@ const Arthemetic = (props) => {
               className="inputtext"
               type="number"
               value={number2}
-              placeholder={0} required="required"
+              placeholder={"Enter 2nd Number"} required="required"
               name="number2" min={0}
-              onChange={(e) => setNumber2(parseInt(e.target.value))}
+              onChange={(e) => setNumber2(e.target.value)}
             />
           </div>
           <div className="buttons">{navButtons}</div>
